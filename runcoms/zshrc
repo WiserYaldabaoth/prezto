@@ -72,7 +72,7 @@ alias -s zshrc=source;
 
 # Setopts {{{1
 
-unset -f diff
+# NOTHING HERE
 
 # }}}1
 
