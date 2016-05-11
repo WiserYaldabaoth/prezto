@@ -13,6 +13,7 @@
 
 # Color output (auto set to 'no' on dumb terminals). {{{2
 zstyle ':prezto:*:*' color 'yes'
+zstyle ':prezto:module:utility:grep' color 'no' # but not grep...
 # }}}2
 
 # Set the Zsh modules to load (man zshmodules). {{{2

@@ -80,6 +80,12 @@ export EDITOR='vim';
 export VISUAL=$EDITOR;
 export DISABLE_AUTO_TITLE=true;
 
-[[ -f ~/.zsh_path ]] && source ~/.zsh_path;
+export FZF_COMPLETION_TRIGGER='~~'
+export FZF_DEFAULT_COMMAND='ag -g ""'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-# vim:fen:fdm=marker
+[[ -f ~/.zsh_path ]] && source ~/.zsh_path;
+[[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
+
+
+# vim:fen:fdm=marker:ft=zsh
