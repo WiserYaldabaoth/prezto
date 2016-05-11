@@ -3,163 +3,203 @@
 #
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
+#   Brian Mejorado <bam9523@rit.edu>
 
-#
-# General
-#
+# General {{{1
 
-# Set case-sensitivity for completion, history lookup, etc.
+# Set case-sensitivity for completion, history lookup, etc. {{{2
 # zstyle ':prezto:*:*' case-sensitive 'yes'
+# }}}2
 
-# Color output (auto set to 'no' on dumb terminals).
+# Color output (auto set to 'no' on dumb terminals). {{{2
 zstyle ':prezto:*:*' color 'yes'
+# }}}2
 
-# Set the Zsh modules to load (man zshmodules).
+# Set the Zsh modules to load (man zshmodules). {{{2
 # zstyle ':prezto:load' zmodule 'attr' 'stat'
+# }}}2
 
-# Set the Zsh functions to load (man zshcontrib).
+# Set the Zsh functions to load (man zshcontrib). {{{2
 # zstyle ':prezto:load' zfunction 'zargs' 'zmv'
+# }}}2
 
-# Set the Prezto modules to load (browse modules).
+# Set the Prezto modules to load (browse modules). {{{2
 # The order matters.
 zstyle ':prezto:load' pmodule \
   'environment' \
   'terminal' \
   'editor' \
   'history' \
+  'history-substring-search' \
+  'git' \
+  'archive' \
   'directory' \
   'spectrum' \
   'utility' \
   'completion' \
+  'syntax-highlighting' \
   'prompt'
+# }}}2
 
-#
-# Autosuggestions
-#
+# }}}1
 
-# Set the query found color.
+# Autosuggestions {{{1
+
+# Set the query found color. {{{2
 # zstyle ':prezto:module:autosuggestions:color' found ''
+# }}}2
 
-#
-# Editor
-#
+# }}}1
 
-# Set the key mapping style to 'emacs' or 'vi'.
-zstyle ':prezto:module:editor' key-bindings 'emacs'
+# Editor {{{1
 
-# Auto convert .... to ../..
+# Set the key mapping style to 'emacs' or 'vi'. {{{2
+zstyle ':prezto:module:editor' key-bindings 'vi'
+# }}}2
+
+# Auto convert .... to ../.. {{{2
 # zstyle ':prezto:module:editor' dot-expansion 'yes'
+# }}}2
 
-#
-# Git
-#
+# }}}1
 
-# Ignore submodules when they are 'dirty', 'untracked', 'all', or 'none'.
-# zstyle ':prezto:module:git:status:ignore' submodules 'all'
+# Git {{{1
 
-#
-# GNU Utility
-#
+# Ignore submodules when they are 'dirty', 'untracked', 'all', or 'none'. {{{2
+zstyle ':prezto:module:git:status:ignore' submodules 'all'
+# }}}2
 
-# Set the command prefix on non-GNU systems.
+# }}}1
+
+# GNU Utility {{{1
+
+# Set the command prefix on non-GNU systems. {{{2
 # zstyle ':prezto:module:gnu-utility' prefix 'g'
+# }}}2
 
-#
-# History Substring Search
-#
+# }}}1
 
-# Set the query found color.
-# zstyle ':prezto:module:history-substring-search:color' found ''
+# History Substring Search {{{1
 
-# Set the query not found color.
-# zstyle ':prezto:module:history-substring-search:color' not-found ''
+# Enable case-sensitivity for this module. {{{2
+zstyle ':prezto:module:history-substring-search' case-sensitive 'yes'
+# }}}2
 
-# Set the search globbing flags.
-# zstyle ':prezto:module:history-substring-search' globbing-flags ''
+# Enable highlighting for this module. {{{2
+zstyle ':prezto:module:history-substring-search' color 'yes'
+# }}}2
 
-#
-# Pacman
-#
+# Set the query found color. {{{2
+zstyle ':prezto:module:history-substring-search:color' found 'green'
+# }}}2
 
-# Set the Pacman frontend.
+# Set the query not found color. {{{2
+zstyle ':prezto:module:history-substring-search:color' not-found 'red'
+# }}}2
+
+# Set the search globbing flags. {{{2
+zstyle ':prezto:module:history-substring-search' globbing-flags ''
+# }}}2
+
+# }}}1
+
+# Pacman {{{1
+
+# Set the Pacman frontend. {{{2
 # zstyle ':prezto:module:pacman' frontend 'yaourt'
+# }}}2
 
-#
-# Prompt
-#
+# }}}1
 
-# Set the prompt theme to load.
+# Prompt {{{1
+
+# Set the prompt theme to load. {{{2
 # Setting it to 'random' loads a random theme.
 # Auto set to 'off' on dumb terminals.
-zstyle ':prezto:module:prompt' theme 'sorin'
+zstyle ':prezto:module:prompt' theme 'steeef'
+# }}}2
 
-#
-# Ruby
-#
+# }}}1
+
+# Ruby {{{1
 
 # Auto switch the Ruby version on directory change.
 # zstyle ':prezto:module:ruby:chruby' auto-switch 'yes'
 
-#
-# Screen
-#
+# }}}1
 
-# Auto start a session when Zsh is launched in a local terminal.
+# Screen {{{1
+
+# Auto start a session when Zsh is launched in a local terminal. {{{2
 # zstyle ':prezto:module:screen:auto-start' local 'yes'
+# }}}2
 
-# Auto start a session when Zsh is launched in a SSH connection.
+# Auto start a session when Zsh is launched in a SSH connection. {{{2
 # zstyle ':prezto:module:screen:auto-start' remote 'yes'
+# }}}2
 
-#
-# SSH
-#
+# }}}1
 
-# Set the SSH identities to load into the agent.
-# zstyle ':prezto:module:ssh:load' identities 'id_rsa' 'id_rsa2' 'id_github'
+# SSH {{{1
 
-#
-# Syntax Highlighting
-#
+# Set the SSH identities to load into the agent. {{{2 {{{2
+zstyle ':prezto:module:ssh:load' identities 'id_ego'
+# }}}2
 
-# Set syntax highlighters.
+# }}}1
+
+# Syntax Highlighting {{{1
+
+# Set syntax highlighters. {{{2
 # By default, only the main highlighter is enabled.
-# zstyle ':prezto:module:syntax-highlighting' highlighters \
-#   'main' \
-#   'brackets' \
-#   'pattern' \
-#   'line' \
-#   'cursor' \
-#   'root'
-#
-# Set syntax highlighting styles.
-# zstyle ':prezto:module:syntax-highlighting' styles \
-#   'builtin' 'bg=blue' \
-#   'command' 'bg=blue' \
-#   'function' 'bg=blue'
+zstyle ':prezto:module:syntax-highlighting' highlighters \
+  'main' \
+  'brackets' \
+  'pattern' \
+  'line' \
+  'cursor' \
+  'root'
+# }}}2
 
-#
-# Terminal
-#
+# Set syntax highlighting styles. {{{2
+zstyle ':prezto:module:syntax-highlighting' styles \
+  'builtin' 'bg=blue' \
+  'command' 'bg=blue' \
+  'function' 'bg=blue'
+# }}}2
 
-# Auto set the tab and window titles.
-# zstyle ':prezto:module:terminal' auto-title 'yes'
+# }}}1
 
-# Set the window title format.
+# Terminal {{{1
+
+# Auto set the tab and window titles. {{{2
+zstyle ':prezto:module:terminal' auto-title 'no'
+# }}}2
+
+# Set the window title format. {{{2
 # zstyle ':prezto:module:terminal:window-title' format '%n@%m: %s'
+# }}}2
 
-# Set the tab title format.
+# Set the tab title format. {{{2
 # zstyle ':prezto:module:terminal:tab-title' format '%m: %s'
+# }}}2
 
-#
-# Tmux
-#
+# }}}1
 
-# Auto start a session when Zsh is launched in a local terminal.
+# Tmux {{{1
+
+# Auto start a session when Zsh is launched in a local terminal. {{{2
 # zstyle ':prezto:module:tmux:auto-start' local 'yes'
+# }}}2
 
-# Auto start a session when Zsh is launched in a SSH connection.
+# Auto start a session when Zsh is launched in a SSH connection. {{{2
 # zstyle ':prezto:module:tmux:auto-start' remote 'yes'
+# }}}2
 
-# Integrate with iTerm2.
+# Integrate with iTerm2. {{{2
 # zstyle ':prezto:module:tmux:iterm' integrate 'yes'
+# }}}2
+
+# }}}1
+
+# vim:fen:fdm=marker
