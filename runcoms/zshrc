@@ -72,7 +72,7 @@ alias -s zshrc=source;
 
 # Setopts {{{1
 
-# NOTHING HERE
+setopt nocdablevars
 
 # }}}1
 
