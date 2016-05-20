@@ -28,6 +28,10 @@ function prompt_bam_precmd {
   if (( $+functions[python-info] )); then
     python-info
   fi
+
+  # if (( $+functions[editor-info] )); then
+  #   editor-info
+  # fi
 }
 
 function prompt_bam_setup {
@@ -63,12 +67,18 @@ function prompt_bam_setup {
 
   # Formats:
   #   %b - branchname
+  #   %i - hash/id
   #   %u - unstagedstr (see below)
   #   %c - stagedstr (see below)
   #   %a - action (e.g. rebase-i)
   #   %R - repository path
   #   %S - path in the repository
-  local branch_format="${_prompt_bam_colors[1]}%b%f%u%c"
+  #
+  # Character mappings:
+  #   Unstaged:    変 (Change)
+  #   Staged:      次 (Stage/sequence)
+  #   Untracked:   妙 (Wonderful)
+  local branch_format="${_prompt_bam_colors[2]}%i${_prompt_bam_colors[1]}%b%f%u%c"
   local action_format="(${_prompt_bam_colors[5]}%a%f)"
   local unstaged_format="${_prompt_bam_colors[2]}変%f"
   local staged_format="${_prompt_bam_colors[5]}次%f"
@@ -85,11 +95,23 @@ function prompt_bam_setup {
   # Set python-info parameters.
   zstyle ':prezto:module:python:info:virtualenv' format '(%v)'
 
+  # Set keymap display parameters.
+  # Command:      命 (Life/Command)
+  # Alternative:  般 (General)
+  # Insert:       福 (Blessing)
+  # Overwrite:    威 (Authority)
+  # Completing:   ...
+  zstyle ':prezto:module:editor:info:keymap:primary' format '命'
+  zstyle ':prezto:module:editor:info:keymap:alternate' format '般'
+  zstyle ':prezto:module:editor:info:keymap:primary:insert' format '福'
+  zstyle ':prezto:module:editor:info:keymap:primary:overwrite' format '威'
+  zstyle ':prezto:module:editor:info:keymap:completing' format '...'
+
   # Define prompts.
   function zle-line-init zle-keymap-select {
       # Change prompt based on insert or command mode
       VIM_PROMPT="${${KEYMAP/vicmd/命}/(main|viins)/福}"
-      PROMPT="${_prompt_bam_colors[3]}%n%f 於${_prompt_bam_colors[2]}%m%f ${_prompt_bam_colors[5]}%~%f "'$python_info[virtualenv]'"$VIM_PROMPT "
+      PROMPT="${_prompt_bam_colors[3]}%n%f 於 ${_prompt_bam_colors[2]}%m%f ${_prompt_bam_colors[5]}%~%f "'$python_info[virtualenv]'"$VIM_PROMPT"
       RPROMPT="${vcs_info_msg_0_}"
       zle reset-prompt
   }
@@ -99,3 +121,5 @@ function prompt_bam_setup {
 }
 
 prompt_bam_setup "$@"
+
+# vim:ft=zsh:ts=2
