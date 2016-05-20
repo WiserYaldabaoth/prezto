@@ -111,7 +111,7 @@ function prompt_bam_setup {
   function zle-line-init zle-keymap-select {
       # Change prompt based on insert or command mode
       VIM_PROMPT="${${KEYMAP/vicmd/命}/(main|viins)/福}"
-      PROMPT="${_prompt_bam_colors[3]}%n%f 於 ${_prompt_bam_colors[2]}%m%f ${_prompt_bam_colors[5]}%~%f "'$python_info[virtualenv]'"$VIM_PROMPT"
+      PROMPT="${_prompt_bam_colors[3]}%n%f 於 ${_prompt_bam_colors[2]}%m%f ${_prompt_bam_colors[5]}%~%f "'$python_info[virtualenv]'"$VIM_PROMPT "
       RPROMPT="${vcs_info_msg_0_}"
       zle reset-prompt
   }
