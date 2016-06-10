@@ -57,6 +57,20 @@ alias glogda='git log --oneline --decorate --color --graph --all --date-order';
 # eclimd
 alias eclimd='~/.eclipse/org.eclipse.platform_4.5.2_155965261_linux_gtk_x86_64/eclimd';
 
+# aggggg
+alias ag='nocorrect ag'
+
+# diggggg
+alias dig='nocorrect dig'
+
+# linkssssss
+alias links='nocorrect links'
+
+# lynxxxxxxxx
+alias lynx="lynx -tna 'Textfields Not Activated'"
+
+alias info="info --vi-keys"
+
 #}}}2
 
 # Suffix Aliases {{{2
